@@ -1535,9 +1535,19 @@ body, #root, .dashboard {
     box-shadow: 0 10px 30px rgba(127, 63, 191, 0.15);
   }
 
+  .sos-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+  }
+
   .panic-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(127, 63, 191, 0.3);
+  }
+
+  .ai-bathroom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(127, 63, 191, 0.1);
   }
 }
 

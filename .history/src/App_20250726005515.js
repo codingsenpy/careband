@@ -1139,13 +1139,11 @@ export default function App() {
           <span className="reminder-text">Eat: 6:00 PM</span>
         </div>
       </div>
-      {/* AI Bathroom Prediction - Only show on mobile devices */}
-      {isMobileDevice() && (
-        <div className="ai-bathroom">
-          <span className="ai-icon">🧠</span>
-          <span className="ai-text">Bathroom likely needed in 20 min</span>
-        </div>
-      )}
+      {/* AI Bathroom Prediction */}
+      <div className="ai-bathroom">
+        <span className="ai-icon">🧠</span>
+        <span className="ai-text">Bathroom likely needed in 20 min</span>
+      </div>
       {/* Caregiver Panic Button */}
       <button className="panic-btn" onClick={() => openDialer('1234567890')}>📲 Contact Caregiver</button>
       

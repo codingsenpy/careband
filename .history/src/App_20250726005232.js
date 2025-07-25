@@ -226,11 +226,6 @@ const openDialer = (phoneNumber) => {
   }
 };
 
-// Check if running on mobile device
-const isMobileDevice = () => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-};
-
 // Medications Detail Component
 function MedicationsDetail({ onClose }) {
   const [medications] = useState([
@@ -1099,13 +1094,11 @@ export default function App() {
         <span className="band-status connected">🟢 Band Connected</span>
         <span className="battery-status">🔋 82%</span>
       </div>
-      {/* Emergency SOS - Only show on mobile devices */}
-      {isMobileDevice() && (
-        <div className="sos-section">
-          <button className="sos-btn" onClick={() => openDialer('102')}>🚨 SOS</button>
-          <div className="sos-label">Emergency Alert</div>
-        </div>
-      )}
+      {/* Emergency SOS */}
+      <div className="sos-section">
+        <button className="sos-btn" onClick={() => openDialer('102')}>🚨 SOS</button>
+        <div className="sos-label">Emergency Alert</div>
+      </div>
       {/* Vitals */}
       <div className="vitals-row">
         <div className="vital-card" onClick={() => handleHealthMetricClick('heart-rate')}>
@@ -1139,13 +1132,11 @@ export default function App() {
           <span className="reminder-text">Eat: 6:00 PM</span>
         </div>
       </div>
-      {/* AI Bathroom Prediction - Only show on mobile devices */}
-      {isMobileDevice() && (
-        <div className="ai-bathroom">
-          <span className="ai-icon">🧠</span>
-          <span className="ai-text">Bathroom likely needed in 20 min</span>
-        </div>
-      )}
+      {/* AI Bathroom Prediction */}
+      <div className="ai-bathroom">
+        <span className="ai-icon">🧠</span>
+        <span className="ai-text">Bathroom likely needed in 20 min</span>
+      </div>
       {/* Caregiver Panic Button */}
       <button className="panic-btn" onClick={() => openDialer('1234567890')}>📲 Contact Caregiver</button>
       

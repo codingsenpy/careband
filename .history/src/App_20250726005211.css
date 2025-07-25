@@ -1523,31 +1523,13 @@ body, #root, .dashboard {
   50% { opacity: 0.8; }
 }
 
-/* Desktop Hover Effects */
-@media (min-width: 768px) and (hover: hover) {
-  .vital-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(127, 63, 191, 0.2);
-  }
-
-  .reminder-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(127, 63, 191, 0.15);
-  }
-
-  .panic-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(127, 63, 191, 0.3);
-  }
-}
-
 /* Desktop Responsive Design */
 @media (min-width: 768px) {
   .dashboard {
     max-width: 1200px;
     padding: 2rem;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
   }
@@ -1559,9 +1541,23 @@ body, #root, .dashboard {
     margin-bottom: 1rem;
   }
 
-  /* SOS section - only visible on mobile, so no desktop styles needed */
   .sos-section {
-    display: none;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .sos-btn {
+    width: 200px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+
+  .sos-label {
+    font-size: 1.2rem;
   }
 
   .vitals-row {
@@ -1597,35 +1593,47 @@ body, #root, .dashboard {
   }
 
   .reminders {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .reminder-card {
     padding: 1.5rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
-    min-height: 120px;
-    text-align: center;
+    min-height: 80px;
   }
 
   .reminder-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .reminder-text {
     font-size: 1.1rem;
   }
 
-  /* AI bathroom - hidden on desktop */
   .ai-bathroom {
-    display: none;
+    grid-column: 2;
+    padding: 2rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .ai-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .ai-text {
+    font-size: 1.2rem;
+    line-height: 1.4;
   }
 
   .panic-btn {
@@ -1641,27 +1649,6 @@ body, #root, .dashboard {
     grid-column: 1 / -1;
     text-align: center;
     margin-top: 2rem;
-  }
-
-  /* Hide swipe hint on desktop and show features button instead */
-  .swipe-hint span {
-    display: none;
-  }
-
-  .swipe-hint::after {
-    content: "Click here to view upcoming features →";
-    color: var(--text-muted);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    transition: all 0.2s;
-  }
-
-  .swipe-hint:hover::after {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
   }
 
   /* Desktop health detail pages */
@@ -1807,7 +1794,7 @@ body, #root, .dashboard {
 @media (min-width: 1400px) {
   .dashboard {
     max-width: 1400px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 3rem;
     padding: 3rem;
   }
@@ -1830,20 +1817,17 @@ body, #root, .dashboard {
   }
 
   .reminders {
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .reminder-card {
     padding: 2rem;
-    min-height: 140px;
+    min-height: 100px;
   }
 
-  .reminder-icon {
-    font-size: 3rem;
-  }
-
-  .reminder-text {
-    font-size: 1.2rem;
+  .ai-bathroom {
+    padding: 3rem;
+    min-height: 200px;
   }
 
   .meds-list, .meals-list {
