@@ -167,6 +167,7 @@ export default function App() {
   if (showAnim) return <StartupAnimation />;
   return (
     <div className="dashboard">
+      <PWADebugInfo />
       <PWAInstallPrompt />
       {/* Top status bar */}
       <div className="status-bar">

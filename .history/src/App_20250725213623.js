@@ -1,7 +1,80 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+// Debug component to help troubleshoot PWA issues
+function PWADebugInfo() {
+  const [debugInfo, setDebugInfo] = useState({});
+  const [showDebug, setShowDebug] = useState(false);
 
+  useEffect(() => {
+    const info = {
+      isSecureContext: window.isSecureContext,
+      hasServiceWorker: 'serviceWorker' in navigator,
+      isStandalone: window.matchMedia('(display-mode: standalone)').matches,
+      navigatorStandalone: window.navigator.standalone,
+      protocol: window.location.protocol,
+      hostname: window.location.hostname,
+      userAgent: navigator.userAgent,
+      manifestLink: document.querySelector('link[rel="manifest"]')?.href
+    };
+    setDebugInfo(info);
+  }, []);
+
+  if (!showDebug) {
+    return (
+      <button 
+        onClick={() => setShowDebug(true)}
+        style={{
+          position: 'fixed',
+          top: '10px',
+          right: '10px',
+          background: '#7F3FBF',
+          color: 'white',
+          border: 'none',
+          padding: '5px 10px',
+          borderRadius: '5px',
+          fontSize: '12px',
+          zIndex: 1001
+        }}
+      >
+        Debug PWA
+      </button>
+    );
+  }
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: '10px',
+      right: '10px',
+      background: 'white',
+      border: '1px solid #ccc',
+      padding: '10px',
+      borderRadius: '5px',
+      fontSize: '12px',
+      maxWidth: '300px',
+      zIndex: 1001,
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+    }}>
+      <button 
+        onClick={() => setShowDebug(false)}
+        style={{ float: 'right', background: 'none', border: 'none', cursor: 'pointer' }}
+      >
+        ✕
+      </button>
+      <h4>PWA Debug Info</h4>
+      <div>
+        <strong>Secure Context:</strong> {debugInfo.isSecureContext ? '✅' : '❌'}<br/>
+        <strong>Service Worker:</strong> {debugInfo.hasServiceWorker ? '✅' : '❌'}<br/>
+        <strong>Standalone:</strong> {debugInfo.isStandalone ? '✅' : '❌'}<br/>
+        <strong>Protocol:</strong> {debugInfo.protocol}<br/>
+        <strong>Hostname:</strong> {debugInfo.hostname}<br/>
+        <strong>Manifest:</strong> {debugInfo.manifestLink ? '✅' : '❌'}<br/>
+        <strong>User Agent:</strong> {debugInfo.userAgent?.substring(0, 50)}...
+      </div>
+    </div>
+  );
+}
 
 function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -167,6 +240,7 @@ export default function App() {
   if (showAnim) return <StartupAnimation />;
   return (
     <div className="dashboard">
+      <PWADebugInfo />
       <PWAInstallPrompt />
       {/* Top status bar */}
       <div className="status-bar">
