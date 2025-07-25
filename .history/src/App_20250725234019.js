@@ -1138,7 +1138,7 @@ export default function App() {
         <span className="ai-text">Bathroom likely needed in 20 min</span>
       </div>
       {/* Caregiver Panic Button */}
-      <button className="panic-btn" onClick={() => openDialer('1234567890')}>📲 Contact Caregiver</button>
+      <button className="panic-btn">📲 Contact Caregiver</button>
       
       {/* Swipe hint */}
       <div className="swipe-hint">

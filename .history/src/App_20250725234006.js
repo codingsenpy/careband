@@ -1119,15 +1119,15 @@ export default function App() {
       </div>
       {/* Reminders */}
       <div className="reminders">
-        <div className="reminder-card" onClick={() => handleHealthMetricClick('medications')}>
+        <div className="reminder-card">
           <span className="reminder-icon">💊</span>
           <span className="reminder-text">Meds: 2:00 PM</span>
         </div>
-        <div className="reminder-card" onClick={() => handleHealthMetricClick('water')}>
+        <div className="reminder-card">
           <span className="reminder-icon">🥤</span>
           <span className="reminder-text">Drink Water: 2:30 PM</span>
         </div>
-        <div className="reminder-card" onClick={() => handleHealthMetricClick('meals')}>
+        <div className="reminder-card">
           <span className="reminder-icon">🍽️</span>
           <span className="reminder-text">Eat: 6:00 PM</span>
         </div>
@@ -1138,7 +1138,7 @@ export default function App() {
         <span className="ai-text">Bathroom likely needed in 20 min</span>
       </div>
       {/* Caregiver Panic Button */}
-      <button className="panic-btn" onClick={() => openDialer('1234567890')}>📲 Contact Caregiver</button>
+      <button className="panic-btn">📲 Contact Caregiver</button>
       
       {/* Swipe hint */}
       <div className="swipe-hint">

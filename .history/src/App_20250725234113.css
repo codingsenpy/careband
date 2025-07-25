@@ -1573,45 +1573,4 @@ body, #root, .dashboard {
   .chart-section, .daily-detail {
     padding: 1rem;
   }
-  
-  /* New components mobile styles */
-  .water-progress {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .water-bottle {
-    width: 60px;
-    height: 150px;
-  }
-  
-  .calorie-circle {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .calorie-progress {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .meds-summary {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  
-  .summary-card {
-    padding: 1rem;
-  }
-  
-  .med-card, .meal-card {
-    padding: 1rem;
-  }
-  
-  .med-header, .meal-header {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
 }
